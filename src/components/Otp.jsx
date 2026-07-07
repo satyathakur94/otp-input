@@ -32,7 +32,7 @@ export default function Otp({number}){
         });
     };
     const focusAtEnd2 = (index) => {
-        const input = refArr.current[index-ç1];
+        const input = refArr.current[index-1];
         requestAnimationFrame(() => {
         input.focus();
         input.setSelectionRange(1, 1);

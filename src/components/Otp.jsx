@@ -23,17 +23,33 @@ export default function Otp({number}){
             SetvalueArr(newArr);
             newVal && refArr.current[index + 1]?.focus();
     }
+    const focusAtEnd1 = (index) => {
+        const input = refArr.current[index+1];
+
+        requestAnimationFrame(() => {
+        input.focus();
+        input.setSelectionRange(1, 1);
+        });
+    };
+    const focusAtEnd2 = (index) => {
+        const input = refArr.current[index-ç1];
+        requestAnimationFrame(() => {
+        input.focus();
+        input.setSelectionRange(1, 1);
+        });
+    };
+
     function cleanValue(e, index){
         if(e.key == "Backspace"){
             {!e.target.value && refArr.current[index-1]?.focus();}
         }
         if(e.key == "ArrowRight"){
-            refArr.current[index+1]?.focus();
+           focusAtEnd1(index);
         }
         if(e.key == "ArrowLeft"){
-            refArr.current[index-1]?.focus();
+           focusAtEnd2(index);
         }
-        console.log(e.key);
+       
 
     }
 
